@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -19,6 +21,7 @@ public class ProxyController {
     }
 
     @GetMapping("/catalan")
+    @CrossOrigin(origins = "*")
     public String catalan(@RequestParam(value = "num") int num) {
         String catalanResponse = "no funciono";
         try{
@@ -32,4 +35,5 @@ public class ProxyController {
         }
         return catalanResponse;
     }
+
 }
